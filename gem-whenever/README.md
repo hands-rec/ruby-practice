@@ -25,6 +25,18 @@ every 1.minute do
 end
 ```
 
+`rbenv`
+
+```
+env :PATH, ENV['PATH']
+job_type :rbenv, "eval \"$(rbenv init -)\"; cd :path && :task :output"
+
+every 1.hour do
+  rbenv "bundle exec xxxxx"
+end
+```
+
+
 ## update crontab 
 ```
 $ bundle exec whenever --update-crontab

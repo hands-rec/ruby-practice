@@ -19,6 +19,16 @@
 
 # Learn more: http://github.com/javan/whenever
 
+set :output, nil
+env :PATH, ENV['PATH']
+
+job_type :rbenv, "eval \"$(rbenv init -)\"; cd :path && :task :output"
+
 every 1.minute do
   command "echo 'whenever test' >> ~/whenever-test.txt"
 end
+
+every '0,30 7-23 * * *' do
+  rbenv " ./run.sh"
+end
+
