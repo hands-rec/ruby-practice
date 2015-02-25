@@ -49,7 +49,11 @@ $ bundle exec whenever -i
 ```
 $ crontab -l
 # Begin Whenever generated tasks for: /home/hands/projects/ruby-practice/gem-whenever/config/schedule.rb
-* * * * * /bin/bash -l -c 'echo '\''whenever test'\'' >> ~/whenever-test.txt'
+PATH=/home/hands/projects/ruby-practice/gem-whenever/vendor/bundle/ruby/2.1.0/bin:/home/hands/.rbenv/versions/2.1.5/bin:/home/hands/.rbenv/libexec:/home/hands/.rbenv/plugins/ruby-build/bin:/home/hands/.rbenv/shims:/home/hands/.rbenv/bin:/usr/kerberos/bin:/usr/local/bin:/bin:/usr/bin:/home/hands/bin
+
+* * * * * /bin/bash -l -c 'echo '\''whenever test'\'' >> ~/whenever-test.txt >> /dev/null 2>&1'
+
+0,30 7-23 * * * /bin/bash -l -c 'eval "$(rbenv init -)"; cd /home/hands/projects/ruby-practice/gem-whenever && ./run.sh >> /dev/null 2>&1'
 
 # End Whenever generated tasks for: /home/hands/projects/ruby-practice/gem-whenever/config/schedule.rb
 ```
