@@ -52,3 +52,30 @@ result = connection.db('2d').command(
 result.each do |d|
   pp d
 end
+
+
+puts "in 5km ---------------------"
+collection.find( {"loc" => 
+  { "$nearSphere" => 
+    { "$geometry" => 
+      { type: "Point", coordinates: [139.701238, 35.658871]},
+      "$maxDistance" =>  5000
+    }
+  }
+}).each do |doc|
+  p doc
+  puts doc["name"]
+end
+
+
+puts "use geoNear ----------------"
+result = connection.db('2d').command(
+  { geoNear: 'yamanotesen',
+    near: { type: "Point", coordinates: [139.701238, 35.658871]},
+    spherical: true,
+    maxDistance: 5000
+  }
+)
+result.each do |d|
+  pp d
+end
