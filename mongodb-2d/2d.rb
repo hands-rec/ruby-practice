@@ -79,3 +79,5 @@ result = connection.db('2d').command(
 result.each do |d|
   pp d
 end
+
+collection.drop()
