@@ -1,4 +1,5 @@
 require 'mongo'
+require 'pp'
 
 # http://gihyo.jp/dev/serial/01/mongodb/0009
 
@@ -35,6 +36,19 @@ collection.find( {"loc" =>
     }
   }
 }).each do |doc|
+  p doc
   puts doc["name"]
 end
 
+
+puts "use geoNear ----------------"
+result = connection.db('2d').command(
+  { geoNear: 'yamanotesen',
+    near: { type: "Point", coordinates: [139.701238, 35.658871]},
+    spherical: true,
+    maxDistance: 2000
+  }
+)
+result.each do |d|
+  pp d
+end
