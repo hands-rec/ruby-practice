@@ -26,3 +26,15 @@ collection.find( {"loc" =>
   puts doc["name"]
 end
 
+puts "in 2km ---------------------"
+collection.find( {"loc" => 
+  { "$nearSphere" => 
+    { "$geometry" => 
+      { type: "Point", coordinates: [139.701238, 35.658871]},
+      "$maxDistance" =>  2000
+    }
+  }
+}).each do |doc|
+  puts doc["name"]
+end
+
