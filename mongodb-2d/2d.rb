@@ -41,7 +41,7 @@ collection.find( {"loc" =>
 end
 
 
-puts "use geoNear ----------------"
+puts "use geoNear db.runCommand ----------------"
 result = connection.db('2d').command(
   { geoNear: 'yamanotesen',
     near: { type: "Point", coordinates: [139.701238, 35.658871]},
@@ -68,7 +68,7 @@ collection.find( {"loc" =>
 end
 
 
-puts "use geoNear ----------------"
+puts "use geoNear db.runCommand ----------------"
 result = connection.db('2d').command(
   { geoNear: 'yamanotesen',
     near: { type: "Point", coordinates: [139.701238, 35.658871]},
