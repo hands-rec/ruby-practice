@@ -110,5 +110,7 @@ index ccdd290..d4c9479 100644
  $col_name = array(
 EOS
 
-pp diff.split(/diff --git*/m)
+split = diff.split(/diff --git/)
+pp split.length
+pp split
 
