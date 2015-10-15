@@ -28,6 +28,7 @@ end
 `rbenv`
 
 ```
+set :output, nil
 env :PATH, ENV['PATH']
 job_type :rbenv, "eval \"$(rbenv init -)\"; cd :path && :task :output"
 
