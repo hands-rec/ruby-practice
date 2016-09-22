@@ -6,7 +6,7 @@ $ bundle install --path vendor/bundle
 ```
 
 ```
-$ bundle ecex wheneverize .
+$ bundle exec wheneverize .
 ```
 
 if `./config dose not exist.`
